@@ -46,4 +46,16 @@
         {{ director.updated_at }}
     </dd>
 </dl>
+
+<hr>
+
+<h3>Filmography</h3>
+
+<ul>
+    {% for movie in director.movie_set.all %}
+    <li>
+        <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+    </li>
+    {% endfor %}
+</ul>
 {% endblock content %}
