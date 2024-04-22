@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Movies</h1>
+
+<table border="1">
+    <tr>
+        <th>
+            ID
+        </th>
+
+        <th>
+            Image
+        </th>
+
+        <th>
+            Title
+        </th>
+
+        <th>
+            Year
+        </th>
+    </tr>
+    {% for movie in movie_list %}
+
+    <tr>
+        <td>
+            {{ movie.pk }}
+        </td>
+
+        <td>
+            <img src="{{ movie.image }}" style="width:250px;">
+        </td>
+
+        <td>
+            <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+        </td>
+
+        <td>
+            {{ movie.year }}
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock content %}
