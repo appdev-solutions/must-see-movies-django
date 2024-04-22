@@ -52,7 +52,7 @@
 <h3>Filmography</h3>
 
 <ul>
-    {% for movie in director.movie_set.all %}
+    {% for movie in director.filmography %}
     <li>
         <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
     </li>
