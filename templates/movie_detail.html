@@ -4,7 +4,8 @@
 <h1>{{ movie.title }}</h1>
 
 <div>
-    <a href="{% url 'movie_update' pk=movie.pk %}">Edit movie</a>
+    <a href="{% url 'movie_update' pk=movie.pk %}">Edit movie</a> |
+    <a href="{% url 'movie_delete' pk=movie.pk %}">Delete movie</a>
 </div>
 
 <hr>
