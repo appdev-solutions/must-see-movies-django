@@ -29,9 +29,9 @@
 <h3>Filmography</h3>
 
 <ul>
-    {% for movie in actor.filmography.all %}
+    {% for character in actor.character_set.all %}
     <li>
-        <a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a>
+        <a href="{{ character.movie.get_absolute_url }}">{{ character.movie.title }}</a> ({{ character.name }})
     </li>
     {% endfor %}
 </ul>
