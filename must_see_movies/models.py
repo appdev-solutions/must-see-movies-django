@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Movie(models.Model):
     description = models.TextField()
@@ -9,3 +10,6 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("movie", kwargs={"pk": self.pk})
