@@ -10,6 +10,11 @@ from .views import (
     DirectorCreateView,
     DirectorUpdateView,
     DirectorDeleteView,
+    ActorListView,
+    ActorDetailView,
+    ActorCreateView,
+    ActorUpdateView,
+    ActorDeleteView,
 )
 
 urlpatterns = [
@@ -23,4 +28,9 @@ urlpatterns = [
     path("directors/new/", DirectorCreateView.as_view(), name="director_create"),
     path("directors/<int:pk>/update/", DirectorUpdateView.as_view(), name="director_update"),
     path("directors/<int:pk>/delete/", DirectorDeleteView.as_view(), name="director_delete"),
+    path("actors/", ActorListView.as_view(), name="actors"),
+    path("actors/<int:pk>/", ActorDetailView.as_view(), name="actor"),
+    path("actors/new/", ActorCreateView.as_view(), name="actor_create"),
+    path("actors/<int:pk>/update/", ActorUpdateView.as_view(), name="actor_update"),
+    path("actors/<int:pk>/delete/", ActorDeleteView.as_view(), name="actor_delete"),
 ]

@@ -1,7 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Movie, Director
+from .models import Movie, Director, Actor
 
 class MovieListView(ListView):
     model = Movie
@@ -48,3 +48,26 @@ class DirectorDeleteView(DeleteView):
     model = Director
     template_name = "director_delete.html"
     success_url = reverse_lazy("directors")
+
+class ActorListView(ListView):
+    model = Actor
+    template_name = "actor_list.html"
+
+class ActorDetailView(DetailView):
+    model = Actor
+    template_name = "actor_detail.html"
+
+class ActorCreateView(CreateView):
+    model = Actor
+    template_name = "actor_new.html"
+    fields = ["name"]
+
+class ActorUpdateView(UpdateView):
+    model = Actor
+    template_name = "actor_edit.html"
+    fields = ["name"]
+
+class ActorDeleteView(DeleteView):
+    model = Actor
+    template_name = "actor_delete.html"
+    success_url = reverse_lazy("actors")
