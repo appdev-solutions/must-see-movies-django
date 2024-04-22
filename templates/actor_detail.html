@@ -35,4 +35,12 @@
     </li>
     {% endfor %}
 </ul>
+
+<h4>Add a character</h4>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Character</button>
+</form>
 {% endblock content %}

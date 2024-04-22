@@ -1,7 +1,9 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import redirect
 from .models import Movie, Director, Actor
+from .forms import CharacterForm
 
 class MovieListView(ListView):
     model = Movie
@@ -56,6 +58,19 @@ class ActorListView(ListView):
 class ActorDetailView(DetailView):
     model = Actor
     template_name = "actor_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["form"] = CharacterForm()  # add form to context
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = CharacterForm(request.POST)
+        if form.is_valid():
+            character = form.save(commit=False)
+            character.actor = self.get_object()  # set actor to current actor
+            character.save()
+            return redirect("actor", pk=self.get_object().pk)  # redirect back to actor detail view
 
 class ActorCreateView(CreateView):
     model = Actor
