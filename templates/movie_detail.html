@@ -43,7 +43,7 @@
         Director
     </dt>
     <dd>
-        {{ movie.director }}
+        <a href="{{ movie.director.get_absolute_url }}">{{ movie.director.name }}</a>
     </dd>
 
     <dt>
