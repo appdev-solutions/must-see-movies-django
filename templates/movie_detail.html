@@ -3,6 +3,12 @@
 {% block content %}
 <h1>{{ movie.title }}</h1>
 
+<div>
+    <a href="{% url 'movie_update' pk=movie.pk %}">Edit movie</a>
+</div>
+
+<hr>
+
 <dl>
     <dt>
         Year
