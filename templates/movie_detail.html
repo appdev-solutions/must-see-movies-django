@@ -60,4 +60,16 @@
         {{ movie.updated_at }}
     </dd>
 </dl>
+
+<hr>
+
+<h3>Cast</h3>
+
+<ul>
+    {% for character in movie.character_set.all %}
+    <li>
+        <a href="{{ character.actor.get_absolute_url }}">{{ character.actor.name }}</a> ({{ character.name }})
+    </li>
+    {% endfor %}
+</ul>
 {% endblock content %}

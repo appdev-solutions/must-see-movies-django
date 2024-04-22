@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Actors</h1>
+
+<div>
+    <a href="{% url 'actor_create' %}">Add an actor</a>
+</div>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <th>
+            ID
+        </th>
+
+        <th>
+            Name
+        </th>
+    </tr>
+    {% for actor in actor_list %}
+
+    <tr>
+        <td>
+            {{ actor.pk }}
+        </td>
+
+        <td>
+            <a href="{{ actor.get_absolute_url }}">{{ actor.name }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock content %}
