@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Directors</h1>
+
+<div>
+    <a href="{% url 'director_create' %}">Add a director</a>
+</div>
+
+<hr>
+
+<table border="1">
+    <tr>
+        <th>
+            ID
+        </th>
+
+        <th>
+            Image
+        </th>
+
+        <th>
+            Name
+        </th>
+    </tr>
+    {% for director in director_list %}
+
+    <tr>
+        <td>
+            {{ director.pk }}
+        </td>
+
+        <td>
+            <img src="{{ director.image }}" style="width:250px;">
+        </td>
+
+        <td>
+            <a href="{{ director.get_absolute_url }}">{{ director.name }}</a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock content %}

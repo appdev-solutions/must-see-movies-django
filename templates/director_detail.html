@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ director.name }}</h1>
+
+<div>
+    <a href="{% url 'director_update' pk=director.pk %}">Edit director</a> |
+    <a href="{% url 'director_delete' pk=director.pk %}">Delete director</a>
+</div>
+
+<hr>
+
+<dl>
+    <dt>
+        Bio
+    </dt>
+    <dd>
+        {{ director.bio }}
+    </dd>
+
+    <dt>
+        Dob
+    </dt>
+    <dd>
+        {{ director.dob }}
+    </dd>
+
+    <dt>
+        Image
+    </dt>
+    <dd>
+        <img src="{{ director.image }}" style="width:250px;">
+    </dd>
+
+    <dt>
+        Created at
+    </dt>
+    <dd>
+        {{ director.created_at }}
+    </dd>
+
+    <dt>
+        Updated at
+    </dt>
+    <dd>
+        {{ director.updated_at }}
+    </dd>
+</dl>
+{% endblock content %}
