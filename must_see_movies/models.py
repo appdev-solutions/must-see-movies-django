@@ -28,6 +28,7 @@ class Movie(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     director = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
+    cast = models.ManyToManyField(Actor, through="Character", related_name="filmography")
 
     def __str__(self):
         return self.title
@@ -39,6 +40,7 @@ class Actor(models.Model):
     name = models.CharField(max_length=255, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    filmography = models.ManyToManyField(Movie, through="Character", related_name="cast")
 
     def __str__(self):
         return self.name
